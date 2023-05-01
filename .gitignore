@@ -1,5 +1,7 @@
 # Bootstrapping #
 #################
+/dist
+/reflect_client.egg-info
 /node_modules
 /public/hot
 /public/storage
@@ -13,7 +15,6 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 public/robots.txt
-
 
 # OS generated files #
 ######################
