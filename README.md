@@ -1,5 +1,9 @@
 # Reflect API client for Python
 
+![Maintenance](https://img.shields.io/maintenance/yes/2023)
+![github](https://img.shields.io/github/v/release/victorwesterlund/reflect-client-python)
+![pypi](https://img.shields.io/pypi/v/reflect-client)
+
 Make requests to an API built using the [Reflect API](https://github.com/VictorWesterlund/reflect) framework over HTTP or UNIX sockets.
 
 ---
