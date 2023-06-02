@@ -36,7 +36,7 @@ Requires Python 3 or newer, and of course a Reflect API endpoint.
 2. **Initialize the module**
 
    ```python
-   from reflect-client import Client 
+   from reflect_client import Client 
    
    client = Client("<API URL or path to UNIX socket>", "<Optional API key>");
    ```
