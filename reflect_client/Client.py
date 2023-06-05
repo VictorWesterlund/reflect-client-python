@@ -47,7 +47,9 @@ class Client:
 
     # Close socket connection when class instance removed
     def __del__(self):
-        self._socket.close()
+        # Close socket if connected
+        if (self._con == Connection.AF_UNIX):
+            self._socket.close()
 
     # Resolve connection type from endpoint string.
     # If the string is a valid URL we will treat it as HTTP otherwise we will assume it's a path on disk to a UNIX socket file.
