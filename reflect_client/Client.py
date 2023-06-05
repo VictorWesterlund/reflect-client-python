@@ -47,7 +47,9 @@ class Client:
 
     # Close socket connection when class instance removed
     def __del__(self):
-        self._socket.close()
+        # Close socket if connected
+        if (self._con == Connection.AF_UNIX):
+            self._socket.close()
 
     # Resolve connection type from endpoint string.
     # If the string is a valid URL we will treat it as HTTP otherwise we will assume it's a path on disk to a UNIX socket file.
@@ -75,9 +77,9 @@ class Client:
         # Remove leading "/" if present, as it's already present in self._endpoint
         endpoint = endpoint if endpoint[-1] != "/" else endpoint[:-1]
         
-        resp = requests.request(method.name, self._endpoint + endpoint, headers=self.http_headers(), data=json.dumps(payload))
-        # Return response as tuple of response code and response body as plain text
-        return (resp.status_code, resp.text)
+        resp = requests.request(method.name, self._endpoint + endpoint, verify=self._https_peer_verify, headers=self.http_headers(), data=json.dumps(payload))
+        # Return response as tuple of response code and response body as decoded JSON (mixed)
+        return (resp.status_code, json.loads(resp.text))
 
     def socket_txn(self, endpoint: str, method: Union[Method, str] = None, payload: list = None) -> tuple:
         data = f'["{endpoint}","{method.name}","{json.dumps(payload)}"]'
