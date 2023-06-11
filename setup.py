@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name = "reflect-client",
-    version = "1.1.1",
+    version = "1.1.2",
     description = "Python library for communicating with an API built with Reflect over HTTP or UNIX sockets",
     author = "Victor Westerlund",
     author_email = "victor.vesterlund@gmail.com",
