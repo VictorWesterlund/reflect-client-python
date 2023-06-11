@@ -66,9 +66,9 @@ class Client:
             "Content-Type": "application/json"
         }
 
-        # Append Authentication header if API key is provided
+        # Append Authorization header if API key is provided
         if (self._key):
-            headers["Authentication"] = f"Bearer {self._key}"
+            headers["Authorization"] = f"Bearer {self._key}"
 
         return headers
 
